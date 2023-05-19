@@ -40,19 +40,19 @@ int main(){
         cout<<code[j];
     }
 
-
-    i = 0;
-    int step = pow(2,i);
-    int start = pow(2,i);
-    int end = start + step - 1;
-    int p = 0;
-    while(start <= n + k){
+    for(int i=0;i<k;i++){
+        int step = pow(2,i);
+        int start = pow(2,i);
+        int end = start + step - 1;
         int p = 0;
-        for(int j = start;j <= end && j <= n + k;j++){
-            p ^= code[j];
+            while(start <= n + k){
+            for(int j = start;j <= end && j <= n + k;j++){
+                p ^= code[j];
+            }
+            start = start + 2 * step;
+            end = start + step - 1;
+            code[step] = p;
         }
-        start = start + 2 * step;
-        end = start + step - 1;
-        code[step] = p;
     }
+    
 }
